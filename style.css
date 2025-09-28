@@ -1,0 +1,228 @@
+html {
+    height: auto; 
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 50px;
+    background: linear-gradient(to top, #87CEEB, #2eda2e);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    height: auto;
+}
+header {
+    background-image:url(Images/header.jpg);
+    background-size: cover;
+    background-position: center 500px;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    height: 150px;
+}
+nav {
+    background-color: #333;
+    padding: 0;
+    position: relative; /* НОВОЕ: контейнер для абсолютной позиции кнопки */
+    overflow: hidden; /* Опционально: обрезает кнопку по краям nav */
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* ССЫЛКИ ПО ЦЕНТРУ: не меняется, элементы не "съезжают" */
+    flex-wrap: wrap;
+    align-items: center;
+    /* Убрали margin/padding, чтобы кнопка не влияла */
+}
+nav li {
+    margin: 0;
+}
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #111;
+}
+.music-toggle {
+    position: absolute; /* АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ: кнопка не влияет на flex ссылок */
+    right: 10px; /* СПРАВА: 10px от края nav */
+    top: 50%; /* Вертикальный центр nav */
+    transform: translateY(-50%); /* Точное центрирование по вертикали */
+    z-index: 10; /* Над другими элементами */
+    /* Убрали margin-left: auto; — теперь не сдвигает ссылки */
+}
+
+#music-btn {
+    background-color: #4CAF50; /* Зелёный цвет (летний, как header) */
+    color: white;
+    border: none;
+    border-radius: 50%; /* КРУГЛАЯ КНОПКА */
+    width: 40px; /* Размер: квадрат 40x40px */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px; /* Размер иконки */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Плавный hover */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Лёгкая тень для объёма */
+}
+
+#music-btn:hover {
+    background-color: #45a049; /* Темнее на hover */
+    transform: scale(1.1); /* Немного увеличиваем */
+}
+
+#music-btn:active {
+    transform: scale(0.95); /* Вдавливание при клике */
+}
+
+/* Иконки внутри кнопки (CSS-иконки) */
+.play-icon, .pause-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Responsive: на мобильных кнопка остаётся справа, но nav вертикальный */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Вертикальная nav */
+        align-items: center;
+    }
+    
+    .music-toggle {
+        margin-left: 0; /* На мобильных — по центру, внизу nav */
+        margin-top: 10px;
+        order: 1; /* Первая в столбце (сверху), если хотите — измените на 999 для низа */
+    }
+    
+    #music-btn {
+        width: 50px; /* Больше на мобильных для касания */
+        height: 50px;
+        font-size: 20px;
+    }
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    height: auto;
+}
+h2 {
+    color: #4CAF50;
+}
+footer {
+    position: fixed;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 36px;
+}
+.head-text { font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 171%;
+    color: #ffffff;
+}
+.foot-text {
+    padding-top: 9px;
+    margin: 0;
+}
+.imgt {
+        width: 400px;
+        margin-left: 200px;
+        border-radius: 10px;
+    }
+    .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Max 3 в ряд */
+    gap: 20px;
+    margin: 20px 0;
+    padding: 0 10px;
+}
+
+.media-card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.media-card:hover {
+    transform: translateY(-5px);
+}
+
+.poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid #000;
+}
+
+.card-text {
+    padding: 15px;
+}
+
+.card-text h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+}
+
+.card-text p {
+    margin: 0;
+    font-size: 0.95em;
+}
+ .section-header {
+    /* Если хотите стилизовать h3 как разделы — добавьте класс <h3 class="section-header"> */
+    font-size: 1.5em;
+    margin: 30px 0 15px 0; /* Больше отступ сверху для разделения */
+    padding-bottom: 5px;
+    border-bottom: 2px solid #4CAF50; /* Подчёркивание для визуального раздела */
+    text-align: center; /* Центрирование заголовков разделов */
+}
+
+/* Responsive (как раньше) */
+@media (max-width: 768px) {
+    .media-grid {
+        grid-template-columns: 1fr; /* 1 в ряд на мобильных */
+        gap: 15px;
+    }
+    
+    .poster {
+        height: 250px;
+    }
+    
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+    
+    .section-header {
+        margin: 20px 0 10px 0;
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+}

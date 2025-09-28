@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Как я провёл своё лето</title>
+    <link rel="icon" type="image/png" href="Images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="Images/favicon.svg" />
+<link rel="shortcut icon" href="Images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="Images/apple-touch-icon.png" />
+<link rel="manifest" href="Images/site.webmanifest" />
+</head>
+<body>
+    <header>
+        <p class="head-text">Личный отчёт о самом жарком лете в моей жизни</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="trips.html">Поездки</a></li>
+            <li><a href="media.html">Занятия</a></li>
+            <li><a href="work.html">Мучения</a></li>
+            <li><a href="brag.html">Хвастовство</a></li>
+            <li class="music-toggle">
+                <button id="music-btn" aria-label="Включить/выключить музыку">
+                    <span class="play-icon">▶</span> <!-- Иконка play (треугольник) -->
+                    <span class="pause-icon" style="display: none;">⏸</span> <!-- Иконка pause (скрыта по умолчанию) -->
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Введение -->
+        <h2>Хоть чего-то я добился</h2>
+        <p>Это то чего я добился за всё лето.</p>
+        
+        <!-- Раздел 1: Фильмы -->
+        <div class="media-grid">
+            <!-- Карточка 1: Фильм -->
+            <div class="media-card">
+                <img src="Images/ach1.jpg" alt="Постер фильма 'Интерстеллар'" class="poster">
+                <div class="card-text">
+                    <h4>God of War - 100%</h4>
+                    <p>Совру, если скажу что не получил удовольствия от этого. Особенно весело было убивать валькирий, которые оказались далеко не таки сложными, как о них все говорили. Хочу теперь в Рагнарёк поиграть.</p>
+                </div>
+            </div>
+            
+            <!-- Карточка 2: Фильм -->
+            <div class="media-card">
+                <img src="Images/ach2.png" alt="Постер фильма 'Дюна'" class="poster">
+                <div class="card-text">
+                    <h4>Cyberpunk 2077 - 100%</h4>
+                    <p>Не ну это такая духота. Чтобы пройти на 100% нужно фармить, много фармить; зачищать всю карту ПОЛНОСТЬЮ, преодолевать баги что мешают тебе играть и получать 9 КОНЦОВОК, КАЖДАЯ ИЗ КОТОРЫХ ЭТО ГЕЙМПЛЕЙ И НЕПРОПУСКАЕМЫЕ КАЦСЦЕНЫ... Спасибо больше не надо</p>
+                </div>
+            </div>
+            <!-- Карточка 2: Фильм -->
+            <div class="media-card">
+                <img src="Images/ach3.jpg" alt="Постер фильма 'Дюна'" class="poster">
+                <div class="card-text">
+                    <h4>Marvel's Spider Man - 100%</h4>
+                    <p>Ничего сложного, прошёл просто на автомате. Под конец играл на минимально сложности, чтобы не пробить монитор от скуки. (Верните старую модельку паучка ироды)</p>
+                </div>
+            </div>
+            <!-- Карточка 2: Фильм -->
+            <div class="media-card">
+                <img src="Images/ach4.jpg" alt="Постер фильма 'Дюна'" class="poster">
+                <div class="card-text">
+                    <h4>Начал заниматься спортом</h4>
+                    <p>Пока проходил God of War иногда горел и так нашёл успокоение в спорте. Начал отжиматься, приседать делать зарядку и т.д.. Теперь даже чуть-чуть год за себя.</p>
+                </div>
+            </div>
+            <!-- Карточка 2: Фильм -->
+            <div class="media-card">
+                <img src="Images/ach5.png" alt="Постер фильма 'Дюна'" class="poster">
+                <div class="card-text">
+                    <h4>Сложнейшая ачивка в Blair</h4>
+                    <p>Потратил 30 попыток, пытаясь получить её одному. Один раз я был очень близок, но не повезло с заданиями. В итоге, чуть позже. мы узнали о баге позволяющим получить это достижение в несколько человек. Так оно и было пройдено. Кек (Кстати спасибо Дмитрию Филенко aka Obreniy aka Boronerbo aka BorodachSy aka あなたの愛 aka Camino con Dios за помощь)</p>
+                </div>
+            </div>
+            <!-- Карточка 2: Фильм -->
+            <div class="media-card">
+                <img src="Images/ach6.jpg" alt="Постер фильма 'Дюна'" class="poster">
+                <div class="card-text">
+                    <h4>Окончил первый курс</h4>
+                    <p>Кое-как, криво косо, через "нимагу" и "не хочу, я нехочун", без троек я закончил первый курс. Я хочу отдохнуть.</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </main>
+    <footer>
+        <p class="foot-text"> 2025 Дмитрий Салыкин "Как я провёл своё лето". Все права защищены.</p>
+    </footer>
+    <audio id="background-music" loop preload="auto">
+        <source src="Music/achiv.mp3" type="audio/mpeg">
+        <source src="" type="audio/ogg">
+        <!-- Fallback: если браузер не поддерживает, текст ниже -->
+        Ваш браузер не поддерживает воспроизведение аудио.
+    </audio>
+
+    <!-- JAVASCRIPT: для toggle музыки -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const musicBtn = document.getElementById('music-btn');
+            const music = document.getElementById('background-music');
+            const playIcon = musicBtn.querySelector('.play-icon');
+            const pauseIcon = musicBtn.querySelector('.pause-icon');
+
+            musicBtn.addEventListener('click', function() {
+                if (music.paused) {
+                    // Если пауза — включить
+                    music.play().then(() => {
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'inline';
+                        musicBtn.title = 'Выключить музыку';
+                    }).catch(error => {
+                        console.log('Ошибка воспроизведения: ', error); // Автоплей заблокирован
+                    });
+                } else {
+                    // Если играет — выключить
+                    music.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                    musicBtn.title = 'Включить музыку';
+                }
+            });
+
+            // Опционально: автопауза при уходе со страницы
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    music.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

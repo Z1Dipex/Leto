@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Как я провёл своё лето</title>
+    <link rel="icon" type="image/png" href="Images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="Images/favicon.svg" />
+<link rel="shortcut icon" href="Images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="Images/apple-touch-icon.png" />
+<link rel="manifest" href="Images/site.webmanifest" />
+</head>
+<body>
+    <header>
+        <p class="head-text">Личный отчёт о самом жарком лете в моей жизни</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="trips.html">Поездки</a></li>
+            <li><a href="media.html">Занятия</a></li>
+            <li><a href="work.html">Мучения</a></li>
+            <li><a href="brag.html">Хвастовство</a></li>
+            <li class="music-toggle">
+                <button id="music-btn" aria-label="Включить/выключить музыку">
+                    <span class="play-icon">▶</span> <!-- Иконка play (треугольник) -->
+                    <span class="pause-icon" style="display: none;">⏸</span> <!-- Иконка pause (скрыта по умолчанию) -->
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Добро пожаловать!</h2>
+            <p>Это мой личный блог о том, как я провёл лето 2025 года. Лето было скучным, но тем не менее я им доволен. Здесь я расскажу обо всём: от путешествий и развлечений до работы и достижений.</p>
+            <h3>Краткий обзор</h3>
+            <ul>
+                <li><strong>Поездки:</strong>Тут рассказывать нечего, так что без спойлеров</li>
+                <li><strong>Занятия:</strong> Посмотрел кучу фильмов, аниме и прочитал пару книг, прошёл парочку игр. Поделюсь отзывами — что зашло, а что нет.</li>
+                <li><strong>Работа:</strong>Ну а как же без мучений</li>
+                <li><strong>Похвастаться:</strong> вещи за которые надо выпить!</li>
+            </ul>
+            <p>Переходи по разделам в навигации выше, чтобы узнать подробности. Лето пролетело быстро, но воспоминания останутся надолго!</p>
+        </section>
+    </main>
+    <footer>
+        <p class="foot-text"> 2025 Дмитрий Салыкин "Как я провёл своё лето". Все права защищены.</p>
+    </footer>
+    <audio id="background-music" loop preload="auto">
+        <source src="Music/main.mp3" type="audio/mpeg">
+        <source src="" type="audio/ogg">
+        Ваш браузер не поддерживает воспроизведение аудио.
+    </audio>
+
+    <!-- JAVASCRIPT: для toggle музыки -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const musicBtn = document.getElementById('music-btn');
+            const music = document.getElementById('background-music');
+            const playIcon = musicBtn.querySelector('.play-icon');
+            const pauseIcon = musicBtn.querySelector('.pause-icon');
+
+            musicBtn.addEventListener('click', function() {
+                if (music.paused) {
+                    // Если пауза — включить
+                    music.play().then(() => {
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'inline';
+                        musicBtn.title = 'Выключить музыку';
+                    }).catch(error => {
+                        console.log('Ошибка воспроизведения: ', error); // Автоплей заблокирован
+                    });
+                } else {
+                    // Если играет — выключить
+                    music.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                    musicBtn.title = 'Включить музыку';
+                }
+            });
+
+            // Опционально: автопауза при уходе со страницы
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    music.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
