@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Как я провёл своё лето</title>
+</head>
+<body>
+    <header>
+        <p class="head-text">Личный отчёт о самом жарком лете в моей жизни</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="trips.html">Поездки</a></li>
+            <li><a href="media.html">Занятия</a></li>
+            <li><a href="work.html">Мучения</a></li>
+            <li><a href="brag.html">Хвастовство</a></li>
+            <li class="music-toggle">
+                <button id="music-btn" aria-label="Включить/выключить музыку">
+                    <span class="play-icon">▶</span> <!-- Иконка play (треугольник) -->
+                    <span class="pause-icon" style="display: none;">⏸</span> <!-- Иконка pause (скрыта по умолчанию) -->
+                </button>
+            </li>
+        </ul>
+    </nav>
+      <main>
+        <section>
+            <h2>Поездки</h2>
+            <p>Единственная большая поездка что была у меня этим летом это в мой родной город - <strong>Котовск</strong>.</p>
+            <div class="imgt"><img src="Images/Kotovsk_Memo.jpg"/></div>
+            <h3>Краткий обзор</h3>
+            <p>Я ездил в Котовск в начале июля. Я очень ждал этих 2-х недель, так как хотел отдохнуть после первого курса обучнения в колледже. С родителями я докрасил гараж, мы подстригли газон, выбросили тонны хлама. Также, уже который год в эмоциональной разрядке мне помогает мой велосипед.</p>
+            <div class="imgt"><img src="Images/Velik.jpg"/></div>          
+            <p>Мой мальчик со мной уже семь лет и за это время он подарил мне массу удовольствий: с ним я был в тонне мест, набил много синяков и даже пару шрамов, колёса я пробивал на другом конце города, и цепь слетала посреди леса. Вообщем я как обычно хорошо провёл время в родных местах.</p>       
+        </section>
+    </main>
+    <footer>
+        <p class="foot-text"> 2025 Дмитрий Салыкин "Как я провёл своё лето". Все права защищены.</p>
+    </footer>
+    <audio id="background-music" loop preload="auto">
+        <source src="Music/trip.mp3" type="audio/mpeg">
+        <source src="summer-music.ogg" type="audio/ogg">
+        <!-- Fallback: если браузер не поддерживает, текст ниже -->
+        Ваш браузер не поддерживает воспроизведение аудио.
+    </audio>
+
+    <!-- JAVASCRIPT: для toggle музыки -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const musicBtn = document.getElementById('music-btn');
+            const music = document.getElementById('background-music');
+            const playIcon = musicBtn.querySelector('.play-icon');
+            const pauseIcon = musicBtn.querySelector('.pause-icon');
+
+            musicBtn.addEventListener('click', function() {
+                if (music.paused) {
+                    // Если пауза — включить
+                    music.play().then(() => {
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'inline';
+                        musicBtn.title = 'Выключить музыку';
+                    }).catch(error => {
+                        console.log('Ошибка воспроизведения: ', error); // Автоплей заблокирован
+                    });
+                } else {
+                    // Если играет — выключить
+                    music.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                    musicBtn.title = 'Включить музыку';
+                }
+            });
+
+            // Опционально: автопауза при уходе со страницы
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    music.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Как я провёл своё лето</title>
+</head>
+<body>
+    <header>
+        <p class="head-text">Личный отчёт о самом жарком лете в моей жизни</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="trips.html">Поездки</a></li>
+            <li><a href="media.html">Занятия</a></li>
+            <li><a href="work.html">Мучения</a></li>
+            <li><a href="brag.html">Хвастовство</a></li>
+            <li class="music-toggle">
+                <button id="music-btn" aria-label="Включить/выключить музыку">
+                    <span class="play-icon">▶</span> <!-- Иконка play (треугольник) -->
+                    <span class="pause-icon" style="display: none;">⏸</span> <!-- Иконка pause (скрыта по умолчанию) -->
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Введение -->
+        <h2>Мучения</h2>
+        <p>То что заставило меня устать в 0.</p>
+        
+            <!-- Карточка 1: Фильм -->
+            <div class="media-card">
+                <img src="Images/prac.png" alt="Постер фильма 'Интерстеллар'" class="poster">
+                <div class="card-text">
+                    <h4>Практика в конце 1 курса</h4>
+                    <p>Я ЧУТЬ-ЧУТЬ устал делать задание по практике: надо было приходить в техникум сидеть несколько часов, ещё и с ограниченным интернетом. Было неприятно, но в целом неплохой опыт.</p>
+                </div>
+            </div>
+            
+            <!-- Карточка 2: Фильм -->
+            <div class="media-card">
+                <img src="Images/leto.jpg" alt="Постер фильма 'Дюна'" class="poster">
+                <div class="card-text">
+                    <h4>ЛЕТО - В С Ё!!!&#128546;</h4>
+                    <p>Последний день лета разбитые корабли, заброшенный берег который любили мы...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="foot-text"> 2025 Дмитрий Салыкин "Как я провёл своё лето". Все права защищены.</p>
+    </footer>
+    <audio id="background-music" loop preload="auto">
+        <source src="Music/last.mp3" type="audio/mpeg">
+        <source src="" type="audio/ogg">
+        <!-- Fallback: если браузер не поддерживает, текст ниже -->
+        Ваш браузер не поддерживает воспроизведение аудио.
+    </audio>
+
+    <!-- JAVASCRIPT: для toggle музыки -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const musicBtn = document.getElementById('music-btn');
+            const music = document.getElementById('background-music');
+            const playIcon = musicBtn.querySelector('.play-icon');
+            const pauseIcon = musicBtn.querySelector('.pause-icon');
+
+            musicBtn.addEventListener('click', function() {
+                if (music.paused) {
+                    // Если пауза — включить
+                    music.play().then(() => {
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'inline';
+                        musicBtn.title = 'Выключить музыку';
+                    }).catch(error => {
+                        console.log('Ошибка воспроизведения: ', error); // Автоплей заблокирован
+                    });
+                } else {
+                    // Если играет — выключить
+                    music.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                    musicBtn.title = 'Включить музыку';
+                }
+            });
+
+            // Опционально: автопауза при уходе со страницы
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    music.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
